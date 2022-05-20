@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "Formatting"
+		},
+		{
+			"path": "Arguments"
 		}
 	],
 	"settings": {}
