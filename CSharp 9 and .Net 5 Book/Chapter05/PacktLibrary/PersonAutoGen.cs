@@ -40,6 +40,18 @@ namespace Packt.Shared
 
                 }
             }
+        }
+
+        public Person this[int index]
+        {
+            get
+            {
+                return Children[index];
+            }
+            set
+            {
+                Children[index] = value;
+            }
         } 
     }
 }

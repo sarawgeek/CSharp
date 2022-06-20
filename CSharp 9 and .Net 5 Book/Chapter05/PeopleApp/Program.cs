@@ -82,14 +82,79 @@ namespace PeopleApp {
                 DateOfBirth = new DateTime(1975,4,11)
             };
 
-            WriteLine(sam.Origin);
+            /* WriteLine(sam.Origin);
             WriteLine(sam.Greetings);
-            WriteLine(sam.Age);
+            WriteLine(sam.Age); */
 
-            sam.FavoriteIceCream = "Chocolate Fudge";
+            /* sam.FavoriteIceCream = "Chocolate Fudge";
             WriteLine($"{sam.Name}'s favorite ice cream is {sam.FavoriteIceCream}");
-            sam.FavoritePrimaryColor = "Purple";
-            WriteLine($"{sam.Name}'s favorite color is {sam.FavoritePrimaryColor}");
+            sam.FavoritePrimaryColor = "Red";
+            WriteLine($"{sam.Name}'s favorite color is {sam.FavoritePrimaryColor}"); */
+
+            sam.Children.Add(new Person{ Name = "Alice"});
+            sam.Children.Add(new Person{ Name = "Ben"});
+            sam[1] = new Person{Name = "Chris"};
+
+            /* WriteLine($"{sam.Name}'s First Children is {sam.Children[0].Name}");
+            WriteLine($"{sam.Name}'s First Children is {sam.Children[1].Name}");
+
+            WriteLine($"{sam.Name}'s First Children is {sam[0].Name}");
+            WriteLine($"{sam.Name}'s First Children is {sam[1].Name}"); */
+
+            object[] passengers = {
+                new FirstClassPassenger { AirMiles = 1_419 },
+                new FirstClassPassenger { AirMiles = 16_562 },
+                new BusinessClassPassenger(),
+                new CoachClassPassenger { CarryOnKG = 25.7 },
+                new CoachClassPassenger { CarryOnKG = 0 }
+            };
+
+            foreach(object passenger in passengers)
+            {
+                decimal flightCost = passenger switch
+                {
+                    // C# 8.0 syntax
+                    /* FirstClassPassenger p when p.AirMiles > 35000 => 1500M,
+                    FirstClassPassenger p when p.AirMiles > 15000 => 1750M,
+                    FirstClassPassenger _                         => 2000M, */
+
+                    FirstClassPassenger p => p.AirMiles switch
+                    {
+                        > 35000 => 1500M,
+                        > 15000 => 1750M,
+                        _       => 2000M
+                    },
+
+                    BusinessClassPassenger _                      => 1000M,
+                    CoachClassPassenger p when p.CarryOnKG < 10.0 => 500M,
+                    CoachClassPassenger _                         => 650M,
+                    _                                             => 800M
+                };
+
+                //WriteLine($"Flight Costs {flightCost} for {passenger}");
+            }
+
+
+            var jeff = new ImmutablePerson
+            {
+                FirstName = "Jeff",
+                LastName = "Winger"
+            };
+
+            var car = new ImmutableVehicle
+            {
+                Wheels = 4,
+                Brand = "Mazda MX-5 RF",
+                Color = "Soul Red Crystal Metallic"
+            };
+
+            var paintedCar = car with {Color = "PolyMetal grey Metallic"};
+
+            //WriteLine($"Car {car.Brand}'s original color is {car.Color} and new color is {paintedCar.Color}");
+
+            var oscar = new ImmutableAnimal("Oscar", "Labrador");
+            var (who, what) = oscar;
+            WriteLine($"{who} is {what}");
         }
     }
 }
