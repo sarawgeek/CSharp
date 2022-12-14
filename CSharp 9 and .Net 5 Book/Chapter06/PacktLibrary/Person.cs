@@ -37,5 +37,43 @@ namespace Packt.Shared
         {
             return Person.Procreate(p1, p2);
         }
+
+        //Local Function
+        public static int Factorial(int number)
+        {
+            if(number < 0)
+            {
+                throw new ArgumentException(
+                    $"{nameof(number)} can not be less then zero"
+                );
+            }
+            return localFactorial(number);
+            
+            int localFactorial(int localNumber)
+            {
+                if(localNumber < 1) return 1;
+                return localNumber * localFactorial(localNumber - 1);
+            }
+        }
+
+        // Delegates and Events
+        public event EventHandler Shout;
+        public int AngerLevel; 
+
+        public void Poke()
+        {
+            if(AngerLevel >= 3)
+            {
+                //if(Shout != null) Shout(this, EventArgs.Empty);
+                Shout?.Invoke(this, EventArgs.Empty);
+            }
+            else AngerLevel++;
+        }
+        //var d = new Shout(ShoutEvent);
+        /* public void ShoutEvent(object sender, EventArgs e)
+        {
+            WriteLine($"Shout Event is called");
+        } */
+
     }
 }
