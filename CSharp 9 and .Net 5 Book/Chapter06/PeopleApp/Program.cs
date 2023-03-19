@@ -25,6 +25,7 @@ namespace PeopleApp
             // harry.Poke();
 
             /* WriteLine($"{harry.Name} has {harry.Children.Count} children");
+            /* WriteLine($"{harry.Name} has {harry.Children.Count} children");
             WriteLine($"{mary.Name} has {mary.Children.Count} children");
             WriteLine($"{jill.Name} has {jill.Children.Count} children");
 
