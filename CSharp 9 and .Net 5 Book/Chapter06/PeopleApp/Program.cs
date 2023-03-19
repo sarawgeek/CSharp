@@ -68,7 +68,15 @@ namespace PeopleApp
              WriteLine(obj2.Process("hello")); */
 
              // Working with Generic Methods
-             
+             /* string number1 = "4";
+             WriteLine("{0} squared is {1}",
+             arg0: number1,
+             arg1: Squarer.Square<string>(number1));
+
+             byte number2 = 3;
+             WriteLine("{0} squared is {1}",
+             arg0: number2,
+             arg1: Squarer.Square<byte>(number2)); */
         }
 
         public static void Harry_Shout(object sender, EventArgs args)
