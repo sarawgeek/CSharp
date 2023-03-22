@@ -77,6 +77,65 @@ namespace PeopleApp
              WriteLine("{0} squared is {1}",
              arg0: number2,
              arg1: Squarer.Square<byte>(number2)); */
+
+             // Inheriting from classes
+             /* Employee john = new Employee
+             {
+                Name = "John Jones",
+                DateOfBirth = new DateTime(1988,8,11),
+                EmployeeCode = "P7113090",
+                HireDate = new DateTime(2021,10,1)
+             };
+             john.WriteToConsole();
+             //WriteLine($"{john.Name} was hired on {john.HireDate:dd/MM/yy}");
+             WriteLine(john.ToString());
+
+             Employee aliceInEmployee = new Employee
+             {
+                Name = "Alice",
+                EmployeeCode = "7113090"
+             };
+
+             Person jackInPerson = new Employee
+             {
+                Name = "Jack",
+                HireDate = new DateTime(2022,10,11)
+             };
+
+             //jackInPerson.WriteNew();
+
+             Person aliceInPerson = aliceInEmployee;
+             aliceInEmployee.WriteToConsole();
+             aliceInPerson.WriteToConsole();
+             WriteLine(aliceInEmployee.ToString());
+             WriteLine(aliceInPerson.ToString()); */
+
+            // Exceptions
+            /* try
+            {
+                john.TimeToTravel(new DateTime(1990, 10, 21));
+                john.TimeToTravel(new DateTime(1985, 10, 21));
+            }
+            catch (PersonException ex)
+            {
+                WriteLine(ex.Message);
+            } */
+
+            // Extending types when you can't inherit
+            string email1 = "jack@mail.com";
+            string email2 = "pamela1&.com";
+
+            WriteLine(format:
+            "{0} is valid email address: {1}",
+            arg0: email1,
+            arg1: email1.IsValidMail()
+            );
+
+            WriteLine(format:
+            "{0} is valid email address: {1}",
+            arg0: email2,
+            arg1: email2.IsValidMail()
+            ); 
         }
 
         public static void Harry_Shout(object sender, EventArgs args)

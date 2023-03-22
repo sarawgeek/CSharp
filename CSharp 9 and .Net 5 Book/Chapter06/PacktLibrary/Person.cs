@@ -10,9 +10,16 @@ namespace Packt.Shared
         public DateTime DateOfBirth;
         public List<Person> Children = new List<Person>(); 
 
-        public void WriteToConsole()
+        public virtual void WriteToConsole()
         {
             WriteLine($"{Name} was born on {DateOfBirth:dddd}");
+        }
+
+        public void TimeToTravel(DateTime when)
+        {
+            if(when <= DateOfBirth)
+            throw new PersonException("If you travel back in time to a date earlier than your own birth, then the universe will explode!");
+            else WriteLine($"Welcome to {when:yyyy}");
         }
 
         public static Person Procreate(Person p1, Person p2)
