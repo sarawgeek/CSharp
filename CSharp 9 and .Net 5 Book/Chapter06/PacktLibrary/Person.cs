@@ -4,11 +4,7 @@ using static System.Console;
 
 namespace Packt.Shared
 {
-<<<<<<< HEAD
-    public class Person : IComparable<Person>
-=======
     public class Person //: IComparable<Person>
->>>>>>> 5ae5e23f5aba76b93c3e96770adbef4d9abcdebd
     {
         public string Name;
         public DateTime DateOfBirth;
@@ -77,7 +73,6 @@ namespace Packt.Shared
             if(AngerLevel >= 3)
             Shout?.Invoke(this, EventArgs.Empty);
         }
-<<<<<<< HEAD
 
         public int CompareTo(Person other)
         {
@@ -88,12 +83,5 @@ namespace Packt.Shared
         {
             WriteLine($"Shout Event is called");
         } */
-=======
->>>>>>> 5ae5e23f5aba76b93c3e96770adbef4d9abcdebd
-
-        public int CompareTo(Person other)
-        {
-            return Name.CompareTo(other.Name);
-        }
     }
 }
