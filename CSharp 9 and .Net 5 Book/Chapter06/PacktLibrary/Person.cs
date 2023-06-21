@@ -4,15 +4,26 @@ using static System.Console;
 
 namespace Packt.Shared
 {
+<<<<<<< HEAD
     public class Person : IComparable<Person>
+=======
+    public class Person //: IComparable<Person>
+>>>>>>> 5ae5e23f5aba76b93c3e96770adbef4d9abcdebd
     {
         public string Name;
         public DateTime DateOfBirth;
         public List<Person> Children = new List<Person>(); 
 
-        public void WriteToConsole()
+        public virtual void WriteToConsole()
         {
             WriteLine($"{Name} was born on {DateOfBirth:dddd}");
+        }
+
+        public void TimeToTravel(DateTime when)
+        {
+            if(when <= DateOfBirth)
+            throw new PersonException("If you travel back in time to a date earlier than your own birth, then the universe will explode!");
+            else WriteLine($"Welcome to {when:yyyy}");
         }
 
         public static Person Procreate(Person p1, Person p2)
@@ -38,37 +49,35 @@ namespace Packt.Shared
             return Person.Procreate(p1, p2);
         }
 
-        //Local Function
+
         public static int Factorial(int number)
         {
             if(number < 0)
             {
                 throw new ArgumentException(
-                    $"{nameof(number)} can not be less then zero"
+                    $"{nameof(number)} cannot be less than zero."
                 );
             }
             return localFactorial(number);
-            
-            int localFactorial(int localNumber)
+
+            int localFactorial(int n)
             {
-                if(localNumber < 1) return 1;
-                return localNumber * localFactorial(localNumber - 1);
+                if(n <= 1) return 1;
+                return n * localFactorial(n-1);
             }
         }
 
-        // Delegates and Events
         public event EventHandler Shout;
-        public int AngerLevel; 
+
+        public int AngerLevel;
 
         public void Poke()
         {
+            AngerLevel++;
             if(AngerLevel >= 3)
-            {
-                //if(Shout != null) Shout(this, EventArgs.Empty);
-                Shout?.Invoke(this, EventArgs.Empty);
-            }
-            else AngerLevel++;
+            Shout?.Invoke(this, EventArgs.Empty);
         }
+<<<<<<< HEAD
 
         public int CompareTo(Person other)
         {
@@ -79,6 +88,12 @@ namespace Packt.Shared
         {
             WriteLine($"Shout Event is called");
         } */
+=======
+>>>>>>> 5ae5e23f5aba76b93c3e96770adbef4d9abcdebd
 
+        public int CompareTo(Person other)
+        {
+            return Name.CompareTo(other.Name);
+        }
     }
 }

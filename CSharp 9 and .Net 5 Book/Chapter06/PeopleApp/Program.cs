@@ -18,7 +18,13 @@ namespace PeopleApp
             var baby2 = Person.Procreate(harry, jill);
 
             var baby3 = harry * mary;
+            harry.Shout += Harry_Shout;
+            // harry.Poke();
+            // harry.Poke();
+            // harry.Poke();
+            // harry.Poke();
 
+            /* WriteLine($"{harry.Name} has {harry.Children.Count} children");
             /* WriteLine($"{harry.Name} has {harry.Children.Count} children");
             WriteLine($"{mary.Name} has {mary.Children.Count} children");
             WriteLine($"{jill.Name} has {jill.Children.Count} children");
@@ -28,20 +34,32 @@ namespace PeopleApp
                 arg0: harry.Name,
                 arg1: harry.Children[0].Name
             ); */
-            
-            // Local Function
-            //WriteLine($"5! factorial is {Person.Factorial(-1)}");
 
-            // Delegates and Events
-            /* var p1 = new Person{Name = "Harry"};
+            // Extending types when you can't inherit
+            /* string email1 = "jack@mail.com";
+            string email2 = "pamela1&.com";
 
+            // Implementing Interfaces
+            /* Person[] people =
+            {
+                new Person { Name = "Simon"},
+                new Person { Name = "Jenny" },
+                new Person { Name = "Adam" },
+                new Person { Name = "Richard" }
+            };
+             WriteLine("Initial list of people");
+             foreach(var person in people)
+             {
+                WriteLine($"{person.Name}");
+             }
 
             p1.Shout += Object_Shout;
             p1.Poke();
             p1.Poke();
             p1.Poke();
             p1.Poke(); */
-
+            
+            /*
             // Interface Implementation
             Person[] people = {
                 new Person{ Name = "Jerry" },
@@ -61,11 +79,97 @@ namespace PeopleApp
             {
                 WriteLine($"{person.Name}");
             }
+             Array.Sort(people, new PersonComparer());
+             WriteLine("Sorted list of people");
+             foreach(var person in people)
+             {
+                WriteLine($"{person.Name}");
+             } */
+
+             // Working with Generic Types
+             /* var obj1 = new GenericThing<int>();
+             obj1.Data = 42;
+             WriteLine(obj1.Process(42));
+
+             var obj2 = new GenericThing<string>();
+             obj2.Data = "hello";
+             WriteLine(obj2.Process("hello")); */
+
+             // Working with Generic Methods
+             /* string number1 = "4";
+             WriteLine("{0} squared is {1}",
+             arg0: number1,
+             arg1: Squarer.Square<string>(number1));
+
+             byte number2 = 3;
+             WriteLine("{0} squared is {1}",
+             arg0: number2,
+             arg1: Squarer.Square<byte>(number2)); */
+
+             // Inheriting from classes
+             /* Employee john = new Employee
+             {
+                Name = "John Jones",
+                DateOfBirth = new DateTime(1988,8,11),
+                EmployeeCode = "P7113090",
+                HireDate = new DateTime(2021,10,1)
+             };
+             john.WriteToConsole();
+             //WriteLine($"{john.Name} was hired on {john.HireDate:dd/MM/yy}");
+             WriteLine(john.ToString());
+
+             Employee aliceInEmployee = new Employee
+             {
+                Name = "Alice",
+                EmployeeCode = "7113090"
+             };
+
+             Person jackInPerson = new Employee
+             {
+                Name = "Jack",
+                HireDate = new DateTime(2022,10,11)
+             };
+
+             //jackInPerson.WriteNew();
+
+             Person aliceInPerson = aliceInEmployee;
+             aliceInEmployee.WriteToConsole();
+             aliceInPerson.WriteToConsole();
+             WriteLine(aliceInEmployee.ToString());
+             WriteLine(aliceInPerson.ToString()); */
+
+            // Exceptions
+            /* try
+            {
+                john.TimeToTravel(new DateTime(1990, 10, 21));
+                john.TimeToTravel(new DateTime(1985, 10, 21));
+            }
+            catch (PersonException ex)
+            {
+                WriteLine(ex.Message);
+            } */
+
+            // Extending types when you can't inherit
+            string email1 = "jack@mail.com";
+            string email2 = "pamela1&.com";
+
+            WriteLine(format:
+            "{0} is valid email address: {1}",
+            arg0: email1,
+            arg1: email1.IsValidMail()
+            );
+
+            WriteLine(format:
+            "{0} is valid email address: {1}",
+            arg0: email2,
+            arg1: email2.IsValidMail()
+            ); 
         }
-        public static void Object_Shout(object sender, EventArgs e)
+
+        public static void Harry_Shout(object sender, EventArgs args)
         {
-            Person p = (Person)sender;
-            WriteLine($"{p.Name} is this angry {p.AngerLevel}");
+            var person = (Person)sender;
+            WriteLine($"{person.Name} is this Angry: {person.AngerLevel}");
         }
     }
 }
