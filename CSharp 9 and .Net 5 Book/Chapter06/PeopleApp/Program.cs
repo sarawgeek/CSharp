@@ -33,14 +33,34 @@ namespace PeopleApp
             //WriteLine($"5! factorial is {Person.Factorial(-1)}");
 
             // Delegates and Events
-            var p1 = new Person{Name = "Harry"};
+            /* var p1 = new Person{Name = "Harry"};
 
 
             p1.Shout += Object_Shout;
             p1.Poke();
             p1.Poke();
             p1.Poke();
-            p1.Poke();
+            p1.Poke(); */
+
+            // Interface Implementation
+            Person[] people = {
+                new Person{ Name = "Jerry" },
+                new Person{ Name = "Henry" },
+                new Person{ Name = "Wilson" },
+                new Person{ Name = "Adam" }
+            };
+
+            foreach(var person in people)
+            {
+                WriteLine($"{person.Name}");
+            }
+
+            Array.Sort(people);
+
+            foreach(var person in people)
+            {
+                WriteLine($"{person.Name}");
+            }
         }
         public static void Object_Shout(object sender, EventArgs e)
         {
